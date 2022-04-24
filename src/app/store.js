@@ -1,8 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+import greetingReducer from '../features/greeting/greeting';
+
+const reducer = combineReducers({ message: greetingReducer });
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
+
+export default store;
