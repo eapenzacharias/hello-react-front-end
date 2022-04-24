@@ -4,15 +4,15 @@ const FETCH_MESSAGE_FAILURE = 'FETCH_MESSAGE_FAILURE';
 
 const apiURL = 'http://localhost:3000';
 
-const initialState = ""
+const initialState = '';
 
 const fetchMessageRequest = () => ({
-  type: FETCH_MESSAGE_REQUEST
+  type: FETCH_MESSAGE_REQUEST,
 });
 
 const fetchMessageSuccess = (payload) => ({
   type: FETCH_MESSAGE_SUCCESS,
-  payload
+  payload,
 });
 
 const fetchMessageFailure = () => ({
@@ -30,18 +30,17 @@ export const fetchMessage = () => async (dispatch) => {
   }
 };
 
-
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case FETCH_MESSAGE_REQUEST:
-      return "Fetching a message...";
+      return 'Fetching a message...';
     case FETCH_MESSAGE_SUCCESS:
       return payload;
     case FETCH_MESSAGE_FAILURE:
-      return "Fetch failed";
+      return 'Fetch failed';
     default:
       return state;
   }
-}
+};
 
 export default reducer;

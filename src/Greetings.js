@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchMessage } from './features/greeting/greeting';
 
 const Greetings = () => {
-  const message = useSelector(state => state.message);
+  const message = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
   useEffect(() => {
